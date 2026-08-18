@@ -1,0 +1,28 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "rag-governance-eval"
+version = "0.1.0"
+description = "Evaluation and quality-gating layer for RAG pipelines governed by Microsoft's Agent Governance Toolkit (agent-rag-governance)"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = [
+    "agent-rag-governance>=4.0.0",
+    "pydantic>=2.4.0",
+]
+
+[project.optional-dependencies]
+# Pinned deliberately: ragas 0.4.x pulls in an optional langchain_community
+# integration (ChatVertexAI) that is broken on import in some environments
+# unless the langchain-google-vertexai extra is also installed. Pin here so
+# `pip install rag-governance-eval[ragas]` is reproducible.
+ragas = ["ragas==0.4.3", "langchain-google-vertexai>=2.0.0"]
+deepeval = ["deepeval>=1.0.0"]
+langchain = ["langchain-core>=0.3.0"]
+dev = ["pytest>=8.0.0", "pytest-asyncio>=0.24.0"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/rag_governance_eval"]
