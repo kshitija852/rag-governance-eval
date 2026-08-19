@@ -9,10 +9,29 @@ description = "Evaluation and quality-gating layer for RAG pipelines governed by
 readme = "README.md"
 license = { text = "MIT" }
 requires-python = ">=3.10"
+authors = [
+    { name = "Kshitija Shete", email = "73576674+kshitija852@users.noreply.github.com" }
+]
+keywords = ["rag", "llm-evaluation", "deepeval", "ragas", "agent-governance", "faithfulness", "hallucination"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
 dependencies = [
     "agent-rag-governance>=4.0.0",
     "pydantic>=2.4.0",
 ]
+
+[project.urls]
+Homepage = "https://github.com/kshitija852/rag-governance-eval"
+Repository = "https://github.com/kshitija852/rag-governance-eval"
+Issues = "https://github.com/kshitija852/rag-governance-eval/issues"
 
 [project.optional-dependencies]
 # Pinned deliberately: ragas 0.4.x pulls in an optional langchain_community
